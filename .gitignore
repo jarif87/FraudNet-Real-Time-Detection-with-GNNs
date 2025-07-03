@@ -1,0 +1,58 @@
+# Python Virtual Environment
+venv/
+env/
+.venv/
+ENV/
+
+# Python Bytecode and Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+
+# Flask and Application-Specific
+instance/
+*.log
+*.pid
+*.sqlite
+
+# Dependency and Build Files
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+dist/
+build/
+*.whl
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS and Environment Files
+.DS_Store
+Thumbs.db
+.env
+*.env
+
+# Testing and Coverage
+.coverage
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Model and Temporary Files
+fraud_gnn_model.pth
+optimal_threshold.txt
+*.bak
+*.swp
+*~
+
+# Miscellaneous
+*.tmp
+temp/
+tmp/

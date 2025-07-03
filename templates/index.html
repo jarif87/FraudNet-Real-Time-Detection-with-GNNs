@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i> Fraud Detection System</h1>
+        <div class="description">
+            <p>Enter transaction details below to check for potential fraud. Provide accurate information such as zip code, merchant details and transaction amount. The system will predict whether the transaction is fraudulent and display the fraud probability.</p>
+        </div>
+        <form id="fraud-form" name="fraud-form" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="Zipcode"><i class="fas fa-map-marker-alt"></i> Zipcode:</label>
+                <input type="number" step="any" name="Zipcode" placeholder="e.g., 91750" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="Merchant_State_Code"><i class="fas fa-globe"></i> Merchant State:</label>
+                <select name="Merchant_State_Code" required>
+                    <option value="" disabled selected>Select a state</option>
+                    {% for state in states|sort %}
+                        <option value="{{ state }}" {% if state == 'TX' %}selected{% endif %}>{{ state }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="User_Frequency_Per_Day"><i class="fas fa-user-clock"></i> User Frequency Per Day:</label>
+                <input type="number" step="any" name="User_Frequency_Per_Day" placeholder="e.g., 1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="Time_Difference_Hours"><i class="fas fa-hourglass-half"></i> Time Difference (Hours):</label>
+                <input type="number" step="any" name="Time_Difference_Hours" placeholder="e.g., 16601.95" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="Merchant_Category_Code"><i class="fas fa-store"></i> Merchant Category Code:</label>
+                <input type="number" step="any" name="Merchant_Category_Code" placeholder="e.g., 5912" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="Merchant_City_Code"><i class="fas fa-city"></i> Merchant City:</label>
+                <select name="Merchant_City_Code" required>
+                    <option value="" disabled selected>Select a city</option>
+                    {% for city in cities|sort %}
+                        <option value="{{ city }}" {% if city == 'Houston' %}selected{% endif %}>{{ city }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="Transaction_Amount"><i class="fas fa-dollar-sign"></i> Transaction Amount:</label>
+                <input type="number" step="any" name="Transaction_Amount" placeholder="e.g., 128.35" required>
+            </div>
+            
+            <button type="submit"><i class="fas fa-search"></i> Predict Fraud</button>
+        </form>
+        {% if result %}
+            <div class="result">
+                <h2>{{ result }}</h2>
+                {% if probability %}
+                    <p>Probability of Fraud: {{ probability }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('serve_js', filename='script.js') }}"></script>
+</body>
+</html>

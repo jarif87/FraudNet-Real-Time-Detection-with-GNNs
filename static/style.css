@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px; /* Reduced max-width for compact form */
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+h1 i {
+    color: #e74c3c;
+    margin-right: 8px;
+}
+
+.description {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Reduced gap for compactness */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+label i {
+    color: #3498db;
+    margin-right: 6px;
+}
+
+input, select {
+    padding: 8px; /* Reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+select {
+    width: 100%;
+    appearance: none;
+    background: #f9f9f9 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+}
+
+button {
+    padding: 10px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button i {
+    margin-right: 6px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    background: #ecf0f1;
+}
+
+.result h2 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.result p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .description {
+        font-size: 0.85rem;
+    }
+}
